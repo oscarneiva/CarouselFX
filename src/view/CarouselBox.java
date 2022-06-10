@@ -27,30 +27,26 @@ public class CarouselBox {
 
     public void initComponents(){
         Button leftArrow = new Button();
-        leftArrow.setStyle("-fx-background-color: rgba(255,255,255,0)");
         leftArrow.setGraphic(getCarouselImage(images));
-        //leftArrow.setScaleX(0.5);
-        //leftArrow.setScaleY(0.5);
+        leftArrow.setId("leftArrow");
 
-        Button image = new Button();
-        image.setStyle("-fx-background-color: rgba(255,255,255,0)");
-        image.setGraphic(getCarouselImage(images));
+        Button imageCarousel = new Button();
+        imageCarousel.setGraphic(getCarouselImage(images));
+        imageCarousel.setId("imageCarousel");
 
         Button rightArrow = new Button();
-        rightArrow.setStyle("-fx-background-color: rgba(255,255,255,0)");
         rightArrow.setGraphic(getCarouselImage(images));
-        //rightArrow.setScaleX(0.5);
-        //rightArrow.setScaleY(0.5);
+        rightArrow.setId("rightArrow");
 
         HBox mainBox = new HBox(10);
-        mainBox.getChildren().addAll(leftArrow, image, rightArrow);
+        mainBox.getChildren().addAll(leftArrow, imageCarousel, rightArrow);
         mainBox.setAlignment(Pos.CENTER);
 
-        scene = new Scene(mainBox);
+        scene = new Scene(mainBox, 600,1000);
     }
 
     public ImageView getCarouselImage(LinkedList<ImageView> images){
-        ImageView image = images.get(4);
+        ImageView image = images.get(1);
         return image;
     }
 

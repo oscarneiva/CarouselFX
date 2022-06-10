@@ -10,9 +10,11 @@ public class CarouselFX extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage stage) {
         CarouselBox carouselBox = new CarouselBox();
-        primaryStage.setScene(carouselBox.getScene());
-        primaryStage.show();
+        stage.setScene(carouselBox.getScene());
+        stage.setHeight(600);
+        stage.setWidth(1000);
+        stage.show();
     }
 }
