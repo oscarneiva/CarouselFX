@@ -12,10 +12,10 @@ public class CarouselController {
     private LinkedList<ImageView> images;
 
     CarouselController(){
-        read();
+
     }
 
-    public void read(){
+    public LinkedList<ImageView> read(){
         try{
             FileReader fileReader = new FileReader("./src/carouselfx/images.csv");
             Scanner scanner = new Scanner(fileReader);
@@ -31,9 +31,7 @@ public class CarouselController {
         }catch(IOException error){
             System.out.println("Read error");
         }
-    }
-
-    public LinkedList<ImageView> getImages() {
         return images;
     }
+
 }

@@ -22,7 +22,14 @@ public class CarouselBox {
     }
 
     public void initComponents(){
-        allocateImages();
+        int size = carouselController.read().size();
+        for (int i = 0; i < images.length; i++) {
+            images[i] = carouselController.read().get((size + scrollIndex)%size);
+            scrollIndex++;
+        }
+        imageBox.getChildren().addAll(images);
+        imageBox.setSpacing(10);
+        imageBox.setAlignment(Pos.CENTER);
 
         images[2].setFitHeight(300);
         images[2].setFitWidth(300);
@@ -47,16 +54,18 @@ public class CarouselBox {
         leftArrow.setPrefSize(50,80);
         leftArrow.setStyle("-fx-background-color:rgba(255,254,254,0); -fx-text-fill:rgba(58,58,58,0.8); -fx-font-size:80pt ; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.38), 2, 0, 0, 0);");
         leftArrow.setOnAction(event -> {
-            //scrollIndex--;
-            //allocateImages();
+            scrollIndex--;
+            imageBox.getChildren().clear();
+            initComponents();
         });
 
         rightArrow = new Button("\u276F");
         rightArrow.setPrefSize(50,80);
         rightArrow.setStyle("-fx-background-color:rgba(255,254,254,0); -fx-text-fill:rgba(58,58,58,0.8); -fx-font-size:80pt ; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.38), 2, 0, 0, 0);");
         rightArrow.setOnAction(event -> {
-            //scrollIndex++;
-            //allocateImages();
+            scrollIndex++;
+            imageBox.getChildren().clear();
+            initComponents();
         });
 
         mainBox = new HBox(10);
@@ -64,17 +73,6 @@ public class CarouselBox {
         mainBox.setAlignment(Pos.CENTER);
 
         scene = new Scene(mainBox);
-    }
-
-    public void allocateImages(){
-        int size = carouselController.getImages().size();
-        for (int i = 0; i < images.length; i++) {
-            images[i] = carouselController.getImages().get((size + scrollIndex)%size);
-            scrollIndex++;
-        }
-        imageBox.getChildren().addAll(images);
-        imageBox.setSpacing(10);
-        imageBox.setAlignment(Pos.CENTER);
     }
 
     public Scene getScene(){
