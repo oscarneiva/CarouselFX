@@ -5,13 +5,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import sun.font.FontRunIterator;
 
 public class CarouselBox {
     private Scene scene;
     private ImageView[] images;
     private Button leftArrow, rightArrow;
     private CarouselController carouselController;
-    private int scrollIndex = 0;
     private HBox imageBox, mainBox;
 
     public CarouselBox(){
@@ -24,9 +24,9 @@ public class CarouselBox {
     public void initComponents(){
         int size = carouselController.read().size();
         for (int i = 0; i < images.length; i++) {
-            images[i] = carouselController.read().get((size + scrollIndex)%size);
-            scrollIndex++;
+            images[i] = carouselController.read().get((size + i)%size);
         }
+
         imageBox.getChildren().addAll(images);
         imageBox.setSpacing(10);
         imageBox.setAlignment(Pos.CENTER);
@@ -54,18 +54,14 @@ public class CarouselBox {
         leftArrow.setPrefSize(50,80);
         leftArrow.setStyle("-fx-background-color:rgba(255,254,254,0); -fx-text-fill:rgba(58,58,58,0.8); -fx-font-size:80pt ; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.38), 2, 0, 0, 0);");
         leftArrow.setOnAction(event -> {
-            scrollIndex--;
-            imageBox.getChildren().clear();
-            initComponents();
+
         });
 
         rightArrow = new Button("\u276F");
         rightArrow.setPrefSize(50,80);
         rightArrow.setStyle("-fx-background-color:rgba(255,254,254,0); -fx-text-fill:rgba(58,58,58,0.8); -fx-font-size:80pt ; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.38), 2, 0, 0, 0);");
         rightArrow.setOnAction(event -> {
-            scrollIndex++;
-            imageBox.getChildren().clear();
-            initComponents();
+            moveRight();
         });
 
         mainBox = new HBox(10);
@@ -73,6 +69,18 @@ public class CarouselBox {
         mainBox.setAlignment(Pos.CENTER);
 
         scene = new Scene(mainBox);
+    }
+
+    public void moveRight(){
+        imageBox.getChildren().clear();
+        ImageView aux = images[images.length-1];
+        for (int i = 0; i < images.length-1; i++) {
+            images[i+1] = images[i];
+        }
+        images[0] = aux;
+        for (int i = 0; i < images.length; i++) {
+            imageBox.getChildren().addAll(images[i]);
+        }
     }
 
     public Scene getScene(){
