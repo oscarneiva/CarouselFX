@@ -28,25 +28,7 @@ public class CarouselBox {
             images[i] = carouselController.read().get((size + i)%size);
         }
 
-        images[2].setFitHeight(300);
-        images[2].setFitWidth(300);
-        images[2].setOpacity(1);
-
-        images[1].setFitHeight(200);
-        images[1].setFitWidth(200);
-        images[1].setOpacity(0.6);
-
-        images[3].setFitHeight(200);
-        images[3].setFitWidth(200);
-        images[3].setOpacity(0.6);
-
-        images[0].setFitHeight(100);
-        images[0].setFitWidth(100);
-        images[0].setOpacity(0.3);
-
-        images[4].setFitHeight(100);
-        images[4].setFitWidth(100);
-        images[4].setOpacity(0.3);
+        setImagesProperties();
 
         imageBox.getChildren().addAll(images);
         imageBox.setSpacing(10);
@@ -81,25 +63,7 @@ public class CarouselBox {
         }
         images[images.length-1] = aux;
 
-        images[2].setFitHeight(300);
-        images[2].setFitWidth(300);
-        images[2].setOpacity(1);
-
-        images[1].setFitHeight(200);
-        images[1].setFitWidth(200);
-        images[1].setOpacity(0.6);
-
-        images[3].setFitHeight(200);
-        images[3].setFitWidth(200);
-        images[3].setOpacity(0.6);
-
-        images[0].setFitHeight(100);
-        images[0].setFitWidth(100);
-        images[0].setOpacity(0.3);
-
-        images[4].setFitHeight(100);
-        images[4].setFitWidth(100);
-        images[4].setOpacity(0.3);
+        setImagesProperties();
 
         for (int i = 0; i < images.length; i++) {
             imageBox.getChildren().addAll(images[i]);
@@ -116,6 +80,16 @@ public class CarouselBox {
         }
         images[0] = aux;
 
+        setImagesProperties();
+
+        for (int i = 0; i < images.length; i++) {
+            imageBox.getChildren().addAll(images[i]);
+        }
+        imageBox.setSpacing(10);
+        imageBox.setAlignment(Pos.CENTER);
+    }
+
+    public void setImagesProperties(){
         images[2].setFitHeight(300);
         images[2].setFitWidth(300);
         images[2].setOpacity(1);
@@ -135,12 +109,6 @@ public class CarouselBox {
         images[4].setFitHeight(100);
         images[4].setFitWidth(100);
         images[4].setOpacity(0.3);
-
-        for (int i = 0; i < images.length; i++) {
-            imageBox.getChildren().addAll(images[i]);
-        }
-        imageBox.setSpacing(10);
-        imageBox.setAlignment(Pos.CENTER);
     }
 
     public Scene getScene(){
