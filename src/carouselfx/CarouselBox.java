@@ -30,6 +30,7 @@ public class CarouselBox {
 
         images[2].setFitHeight(300);
         images[2].setFitWidth(300);
+        images[2].setOpacity(1);
 
         images[1].setFitHeight(200);
         images[1].setFitWidth(200);
@@ -71,7 +72,7 @@ public class CarouselBox {
 
         scene = new Scene(mainBox);
     }
-    // vai
+
     public void moveRight(){
         imageBox.getChildren().clear();
         ImageView aux = images[0];
@@ -79,6 +80,27 @@ public class CarouselBox {
             images[i] = images[i+1];
         }
         images[images.length-1] = aux;
+
+        images[2].setFitHeight(300);
+        images[2].setFitWidth(300);
+        images[2].setOpacity(1);
+
+        images[1].setFitHeight(200);
+        images[1].setFitWidth(200);
+        images[1].setOpacity(0.6);
+
+        images[3].setFitHeight(200);
+        images[3].setFitWidth(200);
+        images[3].setOpacity(0.6);
+
+        images[0].setFitHeight(100);
+        images[0].setFitWidth(100);
+        images[0].setOpacity(0.3);
+
+        images[4].setFitHeight(100);
+        images[4].setFitWidth(100);
+        images[4].setOpacity(0.3);
+
         for (int i = 0; i < images.length; i++) {
             imageBox.getChildren().addAll(images[i]);
         }
@@ -93,6 +115,27 @@ public class CarouselBox {
             images[i] = images[i-1];
         }
         images[0] = aux;
+
+        images[2].setFitHeight(300);
+        images[2].setFitWidth(300);
+        images[2].setOpacity(1);
+
+        images[1].setFitHeight(200);
+        images[1].setFitWidth(200);
+        images[1].setOpacity(0.6);
+
+        images[3].setFitHeight(200);
+        images[3].setFitWidth(200);
+        images[3].setOpacity(0.6);
+
+        images[0].setFitHeight(100);
+        images[0].setFitWidth(100);
+        images[0].setOpacity(0.3);
+
+        images[4].setFitHeight(100);
+        images[4].setFitWidth(100);
+        images[4].setOpacity(0.3);
+
         for (int i = 0; i < images.length; i++) {
             imageBox.getChildren().addAll(images[i]);
         }
