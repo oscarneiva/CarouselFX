@@ -71,7 +71,7 @@ public class CarouselBox {
 
         scene = new Scene(mainBox);
     }
-
+    // vai
     public void moveRight(){
         imageBox.getChildren().clear();
         ImageView aux = images[0];
