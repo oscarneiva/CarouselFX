@@ -35,14 +35,14 @@ public class CarouselBox {
         imageBox.setAlignment(Pos.CENTER);
 
         leftArrow = new Button("\u276E");
-        leftArrow.setPrefSize(50,80);
+        leftArrow.setPrefSize(30,30);
         leftArrow.setStyle("-fx-background-color:rgba(255,254,254,0); -fx-text-fill:rgba(58,58,58,0.8); -fx-font-size:80pt ; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.38), 2, 0, 0, 0);");
         leftArrow.setOnAction(event -> {
             moveLeft();
         });
 
         rightArrow = new Button("\u276F");
-        rightArrow.setPrefSize(50,80);
+        rightArrow.setPrefSize(30,30);
         rightArrow.setStyle("-fx-background-color:rgba(255,254,254,0); -fx-text-fill:rgba(58,58,58,0.8); -fx-font-size:80pt ; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.38), 2, 0, 0, 0);");
         rightArrow.setOnAction(event -> {
             moveRight();
